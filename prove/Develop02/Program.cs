@@ -1,6 +1,6 @@
 using System;
 
-class Program
+public partial class Program
 {
 
     public void Display()
@@ -16,42 +16,98 @@ class Program
     static void Main(string[] args)
     {
         Program main = new Program();
-        PromptGenerator p = new PromptGenerator();
-        p.RandomPrompt();
-        Console.WriteLine("Put in a journal entry question please");
-        string add = Console.ReadLine();
-        p.prompts.Add(add);
-        p.RandomPrompt();
-        main.Display();
+        Journal journal = new Journal();
+        int option = 0;
 
-        int option = int.Parse(Console.ReadLine());
-        switch (option)
+        while (option != 5)
         {
-            case 1:
-                Console.WriteLine("option 1");
+            main.Display();
 
-                break;
-            case 2:
-                Console.WriteLine("numba 2");
+            option = int.Parse(Console.ReadLine());
+            switch (option)
+            {
+                case 1:
+                    Entry entry1 = new Entry();
+                    entry1.addPrompt();
+                    Console.WriteLine(entry1.Prompt);
+                    entry1.Text = Console.ReadLine();
+                    entry1.Date = DateTime.Now.ToShortDateString();
+                    journal.Entries.Add(entry1);
 
-                break;
-            case 3:
-                Console.WriteLine("numba 3");
+                    Console.WriteLine("");
+                    break;
 
-                break;
-            case 4:
-                Console.WriteLine("numba 4");
+                case 2:
+                    journal.ShowAll();
 
-                break;
-            case 5:
-                Console.WriteLine("numba 5");
+                    break;
+                case 3:
+                    Console.WriteLine("What is the name of the file that you want to load?");
+                    journal.file = Console.ReadLine();
+                    journal.loadFile();
 
-                break;
-            default:
-                Console.WriteLine("ok");
+                    break;
+                case 4:
+                    Console.WriteLine("Please enter the name of the file that you want to save to.");
+                    journal.newFileName = Console.ReadLine();
+                    journal.saveFile();
+                    Console.WriteLine("Saved file");
 
-                break;
+                    break;
+                case 5:
+                    Console.WriteLine("Enjoy your day!");
+
+                    break;
+                default:
+                    Console.WriteLine("Invalid choice, try again.");
+
+                    break;
+            }
         }
+
+        // static void Main(string[] args)
+        // {
+        //     int option = 0;
+        //     // Program main = new Program();
+
+        //     Journal journal = new Journal();
+
+        //     while (option != 5)
+        //     {
+        //         main.Display();
+
+        //         option = int.Parse(Console.ReadLine());
+        //         switch (option)
+        //         {
+        //             case 1:
+        //                 Entry entry1 = new Entry();
+        //                 Console.WriteLine(entry1.Prompt);
+        //                 entry1.Text = Console.ReadLine();
+        //                 entry1.Date = DateTime.Now.ToShortDateString();
+        //                 journal.Entries.Add(entry1);               
+        //                 break;
+        //             case 2:
+        //                 journal.ShowAll();
+
+        //                 break;
+        //             case 3:
+        //                 Console.WriteLine("numba 3");
+
+        //                 break;
+        //             case 4:
+        //                 Console.WriteLine("numba 4");
+
+        //                 break;
+        //             case 5:
+        //                 Console.WriteLine("numba 5");
+
+        //                 break;
+        //             default:
+        //                 Console.WriteLine("ok");
+
+        //                 break;
+        //         }
+        //     }
 
     }
 }

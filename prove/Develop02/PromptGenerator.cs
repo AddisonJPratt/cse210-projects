@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class PromptGenerator
 {
 
+
     public List<string> prompts = new List<string>(){
     "Who was the most interesting person I interacted with today?",
     "What was the best part of my day?",
@@ -11,12 +12,12 @@ public class PromptGenerator
     "What was the strongest emotion I felt today?",
     "If I had one thing I could do over today, what would it be?"
 };
-
-    public void RandomPrompt()
+    public string RandomPrompt()
     {
         Random random = new Random();
         int index = random.Next(prompts.Count);
-        Console.WriteLine(prompts[index]);
+        return prompts[index];
+
     }
 }
 
