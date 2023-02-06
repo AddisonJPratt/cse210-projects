@@ -27,12 +27,26 @@ public partial class Program
             switch (option)
             {
                 case 1:
+
                     Entry entry1 = new Entry();
                     entry1.addPrompt();
                     Console.WriteLine(entry1.Prompt);
                     entry1.Text = Console.ReadLine();
-                    entry1.Date = DateTime.Now.ToShortDateString();
-                    journal.Entries.Add(entry1);
+                    int length = entry1.Text.Length;
+
+                    if (length >= 50)
+                    {
+                        entry1.Date = DateTime.Now.ToShortDateString();
+                        journal.Entries.Add(entry1);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please don't be lazy and write more in your Journal! Try again");
+                        Console.WriteLine("");
+                        Console.WriteLine(entry1.Prompt);
+                        entry1.Text = Console.ReadLine();
+                    }
+
 
                     Console.WriteLine("");
                     break;
@@ -64,50 +78,6 @@ public partial class Program
                     break;
             }
         }
-
-        // static void Main(string[] args)
-        // {
-        //     int option = 0;
-        //     // Program main = new Program();
-
-        //     Journal journal = new Journal();
-
-        //     while (option != 5)
-        //     {
-        //         main.Display();
-
-        //         option = int.Parse(Console.ReadLine());
-        //         switch (option)
-        //         {
-        //             case 1:
-        //                 Entry entry1 = new Entry();
-        //                 Console.WriteLine(entry1.Prompt);
-        //                 entry1.Text = Console.ReadLine();
-        //                 entry1.Date = DateTime.Now.ToShortDateString();
-        //                 journal.Entries.Add(entry1);               
-        //                 break;
-        //             case 2:
-        //                 journal.ShowAll();
-
-        //                 break;
-        //             case 3:
-        //                 Console.WriteLine("numba 3");
-
-        //                 break;
-        //             case 4:
-        //                 Console.WriteLine("numba 4");
-
-        //                 break;
-        //             case 5:
-        //                 Console.WriteLine("numba 5");
-
-        //                 break;
-        //             default:
-        //                 Console.WriteLine("ok");
-
-        //                 break;
-        //         }
-        //     }
 
     }
 }
