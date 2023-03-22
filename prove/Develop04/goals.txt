@@ -1,0 +1,9 @@
+A) 3 Types of Goals 
+
+
+Class Goal
+R: Keep Track of Points Earned
+
+name:string
+description: string
+points:int

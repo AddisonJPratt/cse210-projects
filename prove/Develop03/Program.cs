@@ -18,7 +18,6 @@ class Program
         while (enter != "quit")
         {
             Console.Clear();
-            scripture.HideWords();
             scripture.ShowScripture();
 
 

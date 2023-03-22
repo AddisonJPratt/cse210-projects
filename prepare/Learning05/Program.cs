@@ -18,6 +18,7 @@ class Program
         foreach (Shape shap in difShapes)
         {
             Console.WriteLine(shap.GetColor());
+
             Console.WriteLine(shap.GetArea());
         }
 
