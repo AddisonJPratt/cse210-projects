@@ -46,6 +46,6 @@ public abstract class Product
         return _price;
     }
 
-    // public abstract void AddInventory(int quantity);
-    // public abstract void RemoveInventory(int quantity);
+    public abstract void AddInventory(int quantity);
+    public abstract void RemoveInventory(int quantity);
 }

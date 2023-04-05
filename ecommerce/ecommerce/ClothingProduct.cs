@@ -13,15 +13,15 @@ public class ClothingProduct : Product
         _size = size;
     }
 
-    // public override void AddInventory(int quantity)
-    // {
-    //     _inventory += quantity;
-    // }
+    public override void AddInventory(int quantity)
+    {
+        _inventory += quantity;
+    }
 
-    // public override void RemoveInventory(int quantity)
-    // {
-    //     _inventory -= quantity;
-    // }
+    public override void RemoveInventory(int quantity)
+    {
+        _inventory -= quantity;
+    }
 
     public void SetSize(string size)
     {
